@@ -1,3 +1,13 @@
+# @Author: Matthew Hale <matthale>
+# @Date:   2017-10-20T16:26:07-05:00
+# @Email:  mlhale@unomaha.edu
+# @Filename: settings.py
+# @Last modified by:   matthale
+# @Last modified time: 2018-09-06T15:22:25-05:00
+# @Copyright: Copyright (C) 2018 Matthew L. Hale
+
+
+
 """
 Django settings for django_backend project.
 
@@ -27,7 +37,7 @@ if ENVIRONMENT == 'PROD':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['137.48.185.230', 'localhost']
+ALLOWED_HOSTS = ['137.48.185.230', 'localhost', 'django']
 
 
 # Application definition
