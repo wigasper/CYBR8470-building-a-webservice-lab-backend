@@ -31,6 +31,7 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework.permissions import *
 from rest_framework.decorators import *
 from rest_framework.authentication import *
+from rest_framework import generics
 
 #filters
 #from filters.mixins import *
@@ -40,6 +41,7 @@ import json, datetime, pytz
 from django.core import serializers
 import requests
 
+from api.serializers import DogSerializer, BreedSerializer
 
 def home(request):
    """
@@ -129,3 +131,23 @@ class ActivateIFTTT(APIView):
     permission_classes = (AllowAny,)
     parser_classes = (parsers.JSONParser,parsers.FormParser)
     renderer_classes = (renderers.JSONRenderer, )
+
+
+class DogDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Dog.objects.all()
+    serializer_class = DogSerializer
+
+class DogList(generics.ListCreateAPIView):
+    queryset = Dog.objects.all()
+    serializer_class = DogSerializer
+
+
+class BreedDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Breed.objects.all()
+    serializer_class = BreedSerializer
+
+class BreedList(generics.ListCreateAPIView):
+    queryset = Breed.objects.all()
+    serializer_class = BreedSerializer
+
+
